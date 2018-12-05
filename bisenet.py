@@ -144,11 +144,11 @@ class FFM(nn.Module):
 
         return out
 
-class RD_BiSeNet(nn.Module):
+class BiSeNet(nn.Module):
 
     def __init__(self, classes=2):
 
-        super(RD_BiSeNet, self).__init__()
+        super(BiSeNet, self).__init__()
 
 
         # -----------------------------------------------------------------
@@ -256,3 +256,10 @@ class RD_BiSeNet(nn.Module):
         out = self.last_conv(heatmap)
 
         return out
+if __name__ == '__main__':
+
+    model = BiSeNet(3, 'resnet101')
+
+    x = torch.rand(2, 3, 256, 256)
+
+    y = model(x)
